@@ -17,8 +17,7 @@ export class AppComponent {
 	usuario: Usuario;
   title = 'MyLead';
   data: any = null;
-  data2: {"email": "sydney@fife",
-  "password": "pistol"};
+  data2= {"email": "sydney@fife","password": "pistol"};
   private API_URL = "https://reqres.in/api"
 
   constructor(private _http: Http) {
@@ -37,14 +36,15 @@ export class AppComponent {
 
   private  createAccount(data2) {
       return new Promise((resolve, reject) => {
-        this._http.post('https://reqres.in/api/login', data2)
+        this._http.post('https://reqres.in/api/register', data2)
           .subscribe((result: any) => {
+            console.log(result)
             resolve(result.json())
+           
           },
           (error) => {
             reject(error.json())
           });
-        
       });
   }
 
