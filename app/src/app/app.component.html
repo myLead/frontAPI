@@ -304,23 +304,40 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="loginEmail">Email</label>
-              <input type="email" class="form-control" id="loginEmail">
-            </div>
-            <div class="form-group">
-              <label for="loginSenha">Senha</label>
-              <input type="password" class="form-control" id="loginSenha">
-            </div>
-            <button  type="submit" class="btn btn-primary">Entrar na Conta</button>
-            <small class="form-text text-muted">Esqueceu a senha?
-              <a href="#">Clique aqui</a>.</small>
-          </form>
+
+
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="form-group"
+                [class.has-error]="!email.valid && email.touched"
+                [class.has-feedback]="!email.valid && email.touched"
+                >
+                  <label for="loginEmail">Email</label>
+                  <input type="email" class="form-control" name="loginEmail" placeholder="email@email.com" ngModel required email #email="ngModel">
+                  
+                  <div *ngIf="!email.valid && email.touched"
+                  class="alert alert-danger" role="alert">
+                    Email Inválido
+                  </div>
+                </div>
+                <div class="form-group"
+                [class.has-error]="!senha.valid && senha.touched"
+                [class.has-feedback]="!senha.valid && senha.touched">
+                  <label for="loginSenha">Senha</label>
+                  <input type="password" class="form-control" name="loginSenha" placeholder="Senha" ngModel required #senha="ngModel">
+                  <div *ngIf="!senha.valid && senha.touched"
+                  class="alert alert-danger" role="alert">
+                    Senha Inválida
+                  </div>
+                </div>
+                <button  type="submit" class="btn btn-primary" [disabled]="!f.valid">Entrar na Conta</button>
+                <small class="form-text text-muted">Esqueceu a senha?
+                  <a href="#">Clique aqui</a>.</small>
+              </form>
         </div>
       </div>
     </div>
   </div>
+  
   <!-- endmodal  -->
 
 
@@ -336,36 +353,65 @@
 
         <div class="modal-body">
 
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Cadastre-se </label>
-              <input id="planoNomeEmpresa" type="email" class="form-control" id="exampleInputEmail1" placeholder="Nome Da Empresa">
+            <form #f2="ngForm" (ngSubmit)="onSubmit(f2)"
+            [class.has-error]="!nomeempresa.valid && nomeempresa.touched"
+            [class.has-feedback]="!nomeempresa.valid && nomeempresa.touched">
+                <div class="form-group">
+                  <label for="InputNome">Nome Da Empresa</label>
+                  <input  type="nomeempresa" class="form-control" name="InputNome" placeholder="Nome Da Empresa" ngModel required #nomeempresa="ngModel">
+                  <div *ngIf="!nomeempresa.valid && nomeempresa.touched"
+                  class="alert alert-danger" role="alert">
+                    Nome Inválido
+                  </div>
+                </div>
+                <div class="form-group"
+                [class.has-error]="!cnpj.valid && cnpj.touched"
+                [class.has-feedback]="!cnpj.valid && cnpj.touched">
+                  <label for="InputCnpj">CNPJ</label>
+                  <input  type="cnpj" class="form-control" name="InputCnpj" placeholder="CNPJ" ngModel required #cnpj="ngModel">
+                  <div *ngIf="!cnpj.valid && cnpj.touched"
+                  class="alert alert-danger" role="alert">
+                    CNPJ Inválido
+                  </div>
+                </div>
+                <div class="form-group"
+                [class.has-error]="!email.valid && email.touched"
+                [class.has-feedback]="!email.valid && email.touched">
 
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">CNPJ</label>
-              <input id="plano1CNPJ" type="email" class="form-control" id="exampleInputEmail1" placeholder="CNPJ">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email </label>
-              <input id="planoEmail" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Senha</label>
-              <input id="planoSenha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Confirmar Senha</label>
-              <input id="planoConfirmarSenha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirmar Senha">
-            </div>
-
-          </form>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary btn_cadastro">Cadastrar </button>
+                  <label for="InputEmail">Email </label>
+                  <input  type="email" class="form-control" name="ImputEmail" placeholder="Email" ngModel required email #email="ngModel">
+                  <div *ngIf="!email.valid && email.touched"
+                  class="alert alert-danger" role="alert">
+                    Email Inválido
+                  </div>
+                </div>
+                <div class="form-group"
+                [class.has-error]="!senha.valid && senha.touched"
+                [class.has-feedback]="!senha.valid && senha.touched">
+                  <label for="InputSenha">Senha</label>
+                  <input  type="password" class="form-control" name="InputSenha" placeholder="Senha" ngModel required #senha="ngModel">
+                  <div *ngIf="!senha.valid && senha.touched"
+                  class="alert alert-danger" role="alert">
+                    Senha Inválida
+                  </div>
+                </div>
+                <div class="form-group"
+                [class.has-error]="!senha2.valid && senha2.touched"
+                [class.has-feedback]="!senha2.valid && senha2.touched">
+                  <label for="InputConfirmaSenha">Confirmar Senha</label>
+                  <input  type="password" class="form-control" name="InputConfirmaSenha" placeholder="Confirmar Senha" ngModel required #senha2="ngModel">
+                  <div *ngIf="!senha2.valid && senha2.touched"
+                  class="alert alert-danger" role="alert">
+                    Senha Inválida
+                  </div>
+                </div>
+    
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary btn_cadastro">Cadastrar </button>
+                </div>
+    
+              </form>
         </div>
 
       </div>

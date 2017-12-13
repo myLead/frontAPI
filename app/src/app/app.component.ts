@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
@@ -11,7 +11,14 @@ import 'rxjs/add/operator/map'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  
+  onSubmit(form){
+    console.log(form.value);
+  }
+  
+  ngOnInit() {
+  }
 
   
 	usuario: Usuario;

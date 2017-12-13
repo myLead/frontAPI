@@ -28,17 +28,5 @@ $(document).ready(function () {
     }
   })
 
-  $('.btn-cadastro').click(function () {
-    var tipo_plano = $(this).data('plano');
-    var nome = $(this).data('')
-    $('.btn_cadastro').click(function () {
-      alert(tipo_plano);
-      alert($('#planoConfirmarSenha').val());
-      alert($('#planoSenha').val());
-      alert($('#planoNomeEmpresa').val());
-      alert($('#plano1CNPJ').val());
 
-    })
-
-  })
 });
