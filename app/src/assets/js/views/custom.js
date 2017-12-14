@@ -28,5 +28,19 @@ $(document).ready(function () {
     }
   })
 
+  selectTempo(texto)
+  {
+    if (texto == "trimestral") {
+      document.getElementById('#TipoDeCadastro').innerHTML = 'RS 39';
+      // code...
+    }
+    if (texto == "semestral") {
+      document.getElementById('#TipoDeCadastro').innerHTML = 'RS 59';
+    }
+    if (texto == "anual") {
+      document.getElementById('#TipoDeCadastro').innerHTML = 'RS 79';
+    }
+  }
+
 
 });

@@ -71,17 +71,17 @@
           <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
               <li>
-                <a href="https://mylead.github.io/" class="nav-item nav-item-to-close">HOME</a>
-              </li>
-              <li>
-                <a href="https://mylead.github.io/entregas/" class="nav-item nav-item-to-close">ENTREGAS</a>
-              </li>
-              <li>
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">LOGIN</a>
+                <a href="http://mylead-web.herokuapp.com/" class="nav-item nav-item-to-close">HOME</a>
               </li>
             </ul>
-            
+            <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">LOGIN</a>
+            </li>
+          </ul>
           </div>
+        </div>
         </div>
       </div>
     </nav>
@@ -330,8 +330,7 @@
                   </div>
                 </div>
                 <button  type="submit" class="btn btn-primary" [disabled]="!f.valid">Entrar na Conta</button>
-                <small class="form-text text-muted">Esqueceu a senha?
-                  <a href="#">Clique aqui</a>.</small>
+
               </form>
         </div>
       </div>
