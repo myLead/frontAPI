@@ -27,6 +27,55 @@
   <script src="./assets/js/libs/owl.lazyload.js"></script>
   <script src="./assets/js/libs/aos.js"></script>
   <script src="./assets/js/views/custom.js"></script>
+  <script type="text/javascript">
+    function selectTempoGold(texto){
+      if (texto == "trimestral") {
+        document.getElementById('precoPlanoGold').innerHTML = 'R$ 39,99';
+        // code...
+      }
+      if (texto == "semestral") {
+        document.getElementById('precoPlanoGold').innerHTML = 'R$ 59,99';
+      }
+      if (texto == "anual") {
+      document.getElementById('precoPlanoGold').innerHTML = 'R$ 79,99';
+      }
+      if (texto == "0") {
+        document.getElementById('precoPlanoGold').innerHTML = 'Selecione o ciclo';
+      }
+    }
+
+    function selectTempoPremiun(texto){
+      if (texto == "trimestral") {
+        document.getElementById('precoPlanoPremiun').innerHTML = 'R$ 399,99';
+        // code...
+      }
+      if (texto == "semestral") {
+        document.getElementById('precoPlanoPremiun').innerHTML = 'R$ 499,99';
+      }
+      if (texto == "anual") {
+      document.getElementById('precoPlanoPremiun').innerHTML = 'R$ 599,99';
+      }
+      if (texto == "0") {
+        document.getElementById('precoPlanoPremiun').innerHTML = 'Selecione o ciclo';
+      }
+    }
+
+    /*function setarValores1(preco, tempo, plano){
+      document.getElementById('tempoSelecionado').value = tempo;
+      document.getElementById('valorPlano').innerHTML = preco;
+      document.getElementById('planoEscolhido').innerHTML = plano;
+    }*/
+    function setarValoresGold(){
+      document.getElementById('tempoSelecionado').value = document.getElementById('inputPlano1').value;
+      document.getElementById('valorPlano').value = document.getElementById('precoPlanoGold').value;
+      document.getElementById('planoEscolhido').value = document.getElementById('plano1').value;
+    }
+    function setarValoresPremiun(){
+      document.getElementById('tempoSelecionado').value = document.getElementById('inputPlano2').value;
+      document.getElementById('valorPlano').value = document.getElementById('precoPlanoPremiun').value;
+      document.getElementById('planoEscolhido').value = document.getElementById('plano2').value;
+    }
+  </script>
 </body>
 
 </html>

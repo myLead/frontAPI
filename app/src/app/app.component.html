@@ -228,7 +228,7 @@
     <div class="row">
       <div class="col-md mb-5">
         <div class="bg-light rounded p-4 box-shadow">
-          <h2>Plano Empresa Gold</h2>
+          <h2 id="plano1" value="Plano Gold">Plano Empresa Gold</h2>
           <ul class="lista-plano list-unstyled">
             <li>→ Plano Ilimitado</li>
             <li>→ Até 3 Base de dados</li>
@@ -237,20 +237,20 @@
           </ul>
           <form>
             <div class="form-group">
-              <select class="form-control bg-light" id="inputCidades">
-                <option>Selecione o ciclo de pagamento</option>
-                <option>Trimestral</option>
-                <option>Semestral</option>
-                <option>Anual</option>
+              <select class="form-control bg-light" id="inputPlano1" onchange="selectTempoGold(this.value);">
+                <option value="0">Selecione o ciclo de pagamento</option>
+                <option value="trimestral">Trimestral</option>
+                <option value="semestral">Semestral</option>
+                <option value="anual">Anual</option>
               </select>
             </div>
           </form>
           <div class="col">
-            <span class="h4">R$39,90</span>
+            <span class="h4" id="precoPlanoGold"></span>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-              <a href="#" class="btn btn-primary btn-lg btn-block btn-cadastro" data-toggle="modal" data-plano="1" data-target=".bs-example-modal-sm">Comprar Plano</a>
+              <a href="#" class="btn btn-primary btn-lg btn-block btn-cadastro" data-toggle="modal" data-plano="1" data-target=".bs-example-modal-sm" onclick="setarValoresGold()">Comprar Plano</a>
             </div>
 
           </div>
@@ -258,7 +258,7 @@
       </div>
       <div class="col-md mb-5">
         <div class="bg-light rounded p-4 box-shadow">
-          <h2>Plano Empresa Premium
+          <h2 id="plano2" value="Plano Premium">Plano Empresa Premium
             <span class="badge badge-danger">Novo</span>
           </h2>
           <ul class="lista-plano list-unstyled">
@@ -269,20 +269,20 @@
           </ul>
           <form>
             <div class="form-group">
-              <select class="form-control bg-light" id="inputCidades">
-                <option>Selecione o ciclo de pagamento</option>
-                <option>Trimestral</option>
-                <option>Semestral</option>
-                <option>Anual</option>
+              <select class="form-control bg-light" id="inputPlano2" onchange="selectTempoPremiun(this.value);">
+                <option value="0">Selecione o ciclo de pagamento</option>
+                <option value="trimestral">Trimestral</option>
+                <option value="semestral">Semestral</option>
+                <option value="anual">Anual</option>
               </select>
             </div>
           </form>
           <div class="col">
-            <span class="h4">R$599</span>
+            <span class="h4" id="precoPlanoPremiun"></span>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-              <a href="#" class="btn btn-primary btn-lg btn-block btn-cadastro" data-toggle="modal" data-plano="2" data-target=".bs-example-modal-sm">Comprar Plano</a>
+              <a href="#" class="btn btn-primary btn-lg btn-block btn-cadastro" data-toggle="modal" data-plano="2" data-target=".bs-example-modal-sm" onclick="setarValoresPremiun()">Comprar Plano</a>
             </div>
 
           </div>
@@ -357,6 +357,10 @@
             [class.has-error]="!nomeempresa.valid && nomeempresa.touched"
             [class.has-feedback]="!nomeempresa.valid && nomeempresa.touched">
                 <div class="form-group">
+                  <label for="planoEscolhido">Plano</label>
+                  <input type="text" class="form-control" name="planoEscolhido" id="planoEscolhido" disabled="true" ngModel>
+                </div>
+                <div class="form-group">
                   <label for="InputNome">Nome Da Empresa</label>
                   <input  type="nomeempresa" class="form-control" name="InputNome" placeholder="Nome Da Empresa" ngModel required #nomeempresa="ngModel">
                   <div *ngIf="!nomeempresa.valid && nomeempresa.touched"
@@ -404,6 +408,18 @@
                   class="alert alert-danger" role="alert">
                     Senha Inválida
                   </div>
+                </div>
+                <div class="form-group">
+                  <label for="tempoSelecionado">Ciclo de Pagamento</label>
+                  <input type="text" class="form-control" name="tempoSelecionado" id="tempoSelecionado" disabled="true" ngModel>
+                </div>
+                <div class="form-group">
+                  <label for="valorPlano">Valor</label>
+                  <input type="text" class="form-control" name="valorPlano" id="valorPlano" disabled="true" ngModel>
+                </div>
+                <div class="form-group">
+                  <label id="tempoEscolhido"></label>
+                  <label id="precoTempo"></label>
                 </div>
     
                 <div class="modal-footer">

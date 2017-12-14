@@ -20,6 +20,19 @@ export class AppComponent implements OnInit{
   ngOnInit() {
   }
 
+  /*selectTempo(texto){
+    if (texto == "trimestral") {
+      document.getElementById('precoPlanoGold').innerHTML = 'RS 39';
+      // code...
+    }
+    if (texto == "semestral") {
+      document.getElementById('precoPlanoGold').innerHTML = 'RS 59';
+    }
+    if (texto == "anual") {
+      document.getElementById('precoPlanoGold').innerHTML = 'RS 79';
+    }
+  }*/
+
   
 	usuario: Usuario;
   title = 'MyLead';
