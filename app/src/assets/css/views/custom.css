@@ -139,11 +139,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
   #navbar .navbar-right li{
     position: relative;
   }
-  #navbar .navbar-right li a{
-    font-size: 10px;
-    letter-spacing:2px;
-    color: #000;
-  }
+  
   #navbar .navbar-brand svg{
     margin-top:-10px;
     height:50px
