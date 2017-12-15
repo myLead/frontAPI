@@ -237,12 +237,12 @@
           </ul>
           <form>
             <div class="form-group">
-              <select class="form-control bg-light" id="inputPlano1" onchange="selectTempoGold(this.value);">
+              <!--<select class="form-control bg-light" id="inputPlano1" onchange="selectTempoGold(this.value);">
                 <option value="0">Selecione o ciclo de pagamento</option>
                 <option value="trimestral">Trimestral</option>
                 <option value="semestral">Semestral</option>
                 <option value="anual">Anual</option>
-              </select>
+              </select>-->
             </div>
           </form>
           <div class="col">
@@ -252,7 +252,6 @@
             <div class="col">
               <a href="#" class="btn btn-primary btn-lg btn-block btn-cadastro" data-toggle="modal" data-plano="1" data-target=".bs-example-modal-sm" onclick="setarValoresGold()">Comprar Plano</a>
             </div>
-
           </div>
         </div>
       </div>
@@ -269,12 +268,12 @@
           </ul>
           <form>
             <div class="form-group">
-              <select class="form-control bg-light" id="inputPlano2" onchange="selectTempoPremiun(this.value);">
+              <!--<select class="form-control bg-light" id="inputPlano2" onchange="selectTempoPremiun(this.value);">
                 <option value="0">Selecione o ciclo de pagamento</option>
                 <option value="trimestral">Trimestral</option>
                 <option value="semestral">Semestral</option>
                 <option value="anual">Anual</option>
-              </select>
+              </select>-->
             </div>
           </form>
           <div class="col">
@@ -395,7 +394,7 @@
                 [class.has-error]="!senha.valid && senha.touched"
                 [class.has-feedback]="!senha.valid && senha.touched">
                   <label for="InputSenha">Senha</label>
-                  <input  type="password" class="form-control" name="InputSenha" placeholder="Senha" ngModel required #senha="ngModel">
+                  <input  type="password" class="form-control" name="InputSenha" placeholder="Senha" ngModel required  #senha="ngModel">
                   <div *ngIf="!senha.valid && senha.touched"
                   class="alert alert-danger" role="alert">
                     Senha Inválida
@@ -405,7 +404,8 @@
                 [class.has-error]="!senha2.valid && senha2.touched"
                 [class.has-feedback]="!senha2.valid && senha2.touched">
                   <label for="InputConfirmaSenha">Confirmar Senha</label>
-                  <input  type="password" class="form-control" name="InputConfirmaSenha" placeholder="Confirmar Senha" ngModel required #senha2="ngModel">
+                  <input  type="password" class="form-control" name="InputConfirmaSenha" placeholder="Confirmar Senha" ngModel required   #senha2="ngModel">
+                  
                   <div *ngIf="!senha2.valid && senha2.touched"
                   class="alert alert-danger" role="alert">
                     Senha Inválida

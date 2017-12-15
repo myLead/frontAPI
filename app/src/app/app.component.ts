@@ -14,7 +14,12 @@ import 'rxjs/add/operator/map'
 export class AppComponent implements OnInit{
   
   onSubmit(form){
-    console.log(form.value);
+    
+    /*console.log(form.value);*/
+
+    /*this._http.post('https://httpbin.org/post', JSON.stringify(form.value))
+    .map(res => res)
+    .subscribe(dados => console.log(dados))*/
   }
   
   ngOnInit() {
@@ -37,15 +42,19 @@ export class AppComponent implements OnInit{
 	usuario: Usuario;
   title = 'MyLead';
   data: any = null;
+  data3 =  {"email_usuario": "bruudn@gmail.com", 
+  "nome": "RomiRomi", 
+  "senha_usuario": "888888"}
   data2= {"email": "sydney@fife","password": "pistol"};
-  private API_URL = "https://reqres.in/api"
+  /*private API_URL = "https://reqres.in/api"*/
+  private API_URL = "https://mylead-api.herokuapp.com"
 
   constructor(private _http: Http) {
-    this.getMyBlog();
-    this.createAccount(this.data2);
+    /*this.getMyBlog();*/
+    this.createAccount(this.data3);
     }
   private getMyBlog() {
-      return this._http.get(this.API_URL + '/users?page=2')
+      return this._http.get(this.API_URL + '/user')
                   .map((res: Response) => res.json())
                    .subscribe(data => {
                           this.data = data.data;
@@ -54,13 +63,12 @@ export class AppComponent implements OnInit{
     }
 
 
-  private  createAccount(data2) {
+  private  createAccount(data3) {
       return new Promise((resolve, reject) => {
-        this._http.post('https://reqres.in/api/register', data2)
+        this._http.post('https://mylead-api.herokuapp.com/login', data3)
           .subscribe((result: any) => {
             console.log(result)
             resolve(result.json())
-           
           },
           (error) => {
             reject(error.json())
