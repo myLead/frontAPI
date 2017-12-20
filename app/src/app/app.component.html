@@ -305,7 +305,7 @@
         <div class="modal-body">
 
 
-          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <form #f="ngForm" (ngSubmit)="onSubmitLogin(f)">
                 <div class="form-group"
                 [class.has-error]="!email.valid && email.touched"
                 [class.has-feedback]="!email.valid && email.touched"

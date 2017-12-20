@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
+import { Usuario } from './Usuario';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,27 @@ export class AppComponent implements OnInit{
   private API_URL = "https://mylead-api.herokuapp.com";
   title = 'MyLead';
   private formulario = {"nome": null, "cnpj": null, "email_usuario": null, "senha_usuario": null, "id_plano": null}
+  private usuario = {"email_usuario": null, "senha_usuario": null}
   private planoSelecionado: Number
   
   constructor(private _http: Http) {} 
+
+  private onSubmitLogin(form){
+    form._directives.forEach(element => {
+      switch (element.name) {
+        case 'loginEmail':
+          this.usuario.email_usuario = element.viewModel;
+          break;
+        case 'loginSenha':
+          this.usuario.senha_usuario = element.viewModel;
+          break;
+        default:
+          break;
+      }
+    });
+
+    this.LoginAccount(this.usuario);
+  }
 
   private onSubmitCadastro(form){
 
@@ -46,19 +65,38 @@ export class AppComponent implements OnInit{
   ngOnInit() {
   }
 
-  private LoginAccount(data3) {
+   /*
+  private LoginAccount(usuario) {
+    return new Promise((resolve, reject) => {
+      this._http.post(this.API_URL + '/login', usuario)
+        .subscribe((result: any) => {
+          console.log(result)
+          resolve(result.json())
+        },
+        (error) => {
+          reject(error.json())
+        });
+    });
+}*/
+
+  private LoginAccount(usuario) {
       return new Promise((resolve, reject) => {
-        this._http.post(this.API_URL + '/login', data3)
+        this._http.post(this.API_URL + '/login', usuario)
           .subscribe((result: any) => {
-            console.log(result)
-            resolve(result.json())
+            if (result.json()) {
+              if (result.json().status == "success"){
+                alert(result.json().message)
+              }else{
+                alert(result.json().message)
+              }
+            }
           },
           (error) => {
             reject(error.json())
           });
       });
   }
-
+ 
   private createAccount(dados) {
     return new Promise((resolve, reject) => {
       this._http.post(this.API_URL + '/user', dados)
