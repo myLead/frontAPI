@@ -11,27 +11,10 @@ import 'rxjs/add/operator/map'
 export class AppComponent implements OnInit{
   private API_URL = "https://mylead-api.herokuapp.com";
   title = 'MyLead';
-  private formulario = {"nome": null, "cnpj": null, "email_usuario": null, "senha_usuario": null}
-  private plano: number;
-  private planoSelecionado: String
-
-
-  private data3 =  {"email_usuario": "bruudn@gmail.com", 
-  "nome": "RomiRomi", 
-  "senha_usuario": "8888889"}
+  private formulario = {"nome": null, "cnpj": null, "email_usuario": null, "senha_usuario": null, "id_plano": null}
+  private planoSelecionado: Number
   
-
   constructor(private _http: Http) {} 
-
-
-  private onSubmit(form){
-    this.LoginAccount(this.data3);
-    /*console.log(form.value);*/
-
-    /*this._http.post('https://httpbin.org/post', JSON.stringify(form.value))
-    .map(res => res)
-    .subscribe(dados => console.log(dados))*/
-  }
 
   private onSubmitCadastro(form){
 
@@ -54,12 +37,10 @@ export class AppComponent implements OnInit{
       }
     });
 
+    this.formulario.id_plano = this.planoSelecionado;
+
     this.createAccount(this.formulario);
     
-  }
-
-  private onClick(num){
-    this.escolherPlano(num);
   }
   
   ngOnInit() {
@@ -102,11 +83,7 @@ export class AppComponent implements OnInit{
   }
 
   private escolherPlano(plano){
-    if (plano == 1){
-      this.planoSelecionado = 'Plano Gold';
-    }else{
-      this.planoSelecionado = 'Plano Premium';
-    }
+    this.planoSelecionado = plano
   }
 
 }
