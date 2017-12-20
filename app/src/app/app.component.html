@@ -250,7 +250,7 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-              <a href="#" class="btn btn-primary btn-lg btn-block btn-cadastro" data-toggle="modal" data-plano="1" data-target=".bs-example-modal-sm" onclick="setarValoresGold()">Comprar Plano</a>
+              <a href="#" class="btn btn-primary btn-lg btn-block btn-cadastro" data-toggle="modal" data-plano="1" data-target=".bs-example-modal-sm" onclick="escolherPlano(1)">Comprar Plano</a>
             </div>
           </div>
         </div>
@@ -352,16 +352,17 @@
 
         <div class="modal-body">
 
-            <form #f2="ngForm" (ngSubmit)="onSubmit(f2)"
+            <form #f2="ngForm" (ngSubmit)="onSubmitCadastro(f2)"
             [class.has-error]="!nomeempresa.valid && nomeempresa.touched"
             [class.has-feedback]="!nomeempresa.valid && nomeempresa.touched">
+            <!--
                 <div class="form-group">
                   <label for="planoEscolhido">Plano</label>
-                  <input type="text" class="form-control" name="planoEscolhido" id="planoEscolhido" disabled="false" ngModel>
-                </div>
+                  <input type="text" class="form-control" name="planoEscolhido" value="{{ planoSelecionado }}" id="planoEscolhido" disabled="false" ngModel>
+                </div>-->
                 <div class="form-group">
                   <label for="InputNome">Nome Da Empresa</label>
-                  <input  type="nomeempresa" class="form-control" name="InputNome" placeholder="Nome Da Empresa" ngModel required #nomeempresa="ngModel">
+                  <input id="nomeEmpresa" type="nomeempresa" class="form-control" name="InputNome" placeholder="Nome Da Empresa" ngModel required #nomeempresa="ngModel">
                   <div *ngIf="!nomeempresa.valid && nomeempresa.touched"
                   class="alert alert-danger" role="alert">
                     Nome Inválido
@@ -371,7 +372,7 @@
                 [class.has-error]="!cnpj.valid && cnpj.touched"
                 [class.has-feedback]="!cnpj.valid && cnpj.touched">
                   <label for="InputCnpj">CNPJ</label>
-                  <input  type="cnpj" class="form-control" name="InputCnpj" placeholder="CNPJ" ngModel required #cnpj="ngModel"
+                  <input id="cnpjEmpresa" type="cnpj" class="form-control" name="InputCnpj" placeholder="CNPJ" ngModel required #cnpj="ngModel"
                   pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
                   <div *ngIf="!cnpj.valid && cnpj.touched"
                   class="alert alert-danger" role="alert">
@@ -383,7 +384,7 @@
                 [class.has-feedback]="!email.valid && email.touched">
 
                   <label for="InputEmail">Email </label>
-                  <input  type="email" class="form-control" name="ImputEmail" placeholder="Email" ngModel required email #email="ngModel"
+                  <input id="emailEmpresa" type="email" class="form-control" name="ImputEmail" placeholder="Email" ngModel required email #email="ngModel"
                   pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
                   <div *ngIf="!email.valid && email.touched"
                   class="alert alert-danger" role="alert">
@@ -394,7 +395,7 @@
                 [class.has-error]="!senha.valid && senha.touched"
                 [class.has-feedback]="!senha.valid && senha.touched">
                   <label for="InputSenha">Senha</label>
-                  <input  type="password" class="form-control" name="InputSenha" placeholder="Senha" ngModel required  #senha="ngModel">
+                  <input id="senhaEmpresa" type="password" class="form-control" name="InputSenha" placeholder="Senha" ngModel required  #senha="ngModel">
                   <div *ngIf="!senha.valid && senha.touched"
                   class="alert alert-danger" role="alert">
                     Senha Inválida
@@ -411,6 +412,7 @@
                     Senha Inválida
                   </div>
                 </div>
+                <!--
                 <div class="form-group">
                   <label for="tempoSelecionado">Ciclo de Pagamento</label>
                   <input type="text" class="form-control" name="tempoSelecionado" id="tempoSelecionado" disabled="false" ngModel>
@@ -423,6 +425,7 @@
                   <label id="tempoEscolhido"></label>
                   <label id="precoTempo"></label>
                 </div>
+              -->
     
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
