@@ -46,13 +46,25 @@ export class ModalLoginComponent implements OnInit {
             .subscribe((result: any) => {
               if (result.json()) {
                 if (result.json().status == "success"){
-                  alert(result.json().message)
+                  //alert(result.json().message)
+                  $.notify({
+                    title: 'Erro:'
+                    message: 'Email ou senha incorretos'
+                  },{
+                    type: 'success'
+                  })
                   this.user.setUserloggedIn();
                   this.router.navigate(['dashboard']);
                   $('#modalLogin').modal('toggle');
 
                 }else{
-                  alert(result.json().message)
+                  //alert(result.json().message)
+                  $.notify({
+                    title: 'Erro:'
+                    message: 'Email ou senha incorretos'
+                  },{
+                    type: 'danger'
+                  })
                 }
               }
             },
