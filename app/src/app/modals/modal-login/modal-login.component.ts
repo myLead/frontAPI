@@ -9,6 +9,7 @@ import { Http } from '@angular/http';
   styleUrls: ['./modal-login.component.css']
 })
 export class ModalLoginComponent implements OnInit {
+  dialog: any;
   private API_URL = "https://mylead-api.herokuapp.com";
   private formulario = {"email_usuario": null, "senha_usuario": null}
 
@@ -45,6 +46,9 @@ export class ModalLoginComponent implements OnInit {
               if (result.json()) {
                 if (result.json().status == "success"){
                   alert(result.json().message)
+                  this.user.setUserloggedIn();
+                  this.router.navigate(['dashboard']);
+                  this.dialog.close(result);
                 }else{
                   alert(result.json().message)
                 }
