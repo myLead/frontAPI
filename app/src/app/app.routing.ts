@@ -12,7 +12,7 @@ const APP_ROUTS: Routes = [
     },
     {
         path: 'dashboard',
-        //canActivate: [AuthguardGuard],
+        canActivate: [AuthguardGuard],
         component: DashboardComponent
     }
 ]
