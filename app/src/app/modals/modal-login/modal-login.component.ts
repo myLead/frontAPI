@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { Router, RouterModule} from '@angular/router';
 import { Http } from '@angular/http';
+declare var $:any;
 
 @Component({
   selector: 'app-modal-login',
@@ -48,7 +49,8 @@ export class ModalLoginComponent implements OnInit {
                   alert(result.json().message)
                   this.user.setUserloggedIn();
                   this.router.navigate(['dashboard']);
-                  this.dialog.close(result);
+                  $('#modalLogin').modal('toggle');
+
                 }else{
                   alert(result.json().message)
                 }
