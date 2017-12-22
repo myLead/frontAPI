@@ -13,7 +13,7 @@
         <div class="modal-body">
   
   
-          <form #f="ngForm" (ngSubmit)="onSubmitLogin(f)">
+          <form #f="ngForm" (submit)="longinUser()">
             <div class="form-group" [class.has-error]="!email.valid && email.touched" [class.has-feedback]="!email.valid && email.touched">
               <label for="loginEmail">Email</label>
               <input type="email" class="form-control" name="loginEmail" placeholder="email@email.com" ngModel required email #email="ngModel"
@@ -30,7 +30,7 @@
                 Senha Inválida
               </div>
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Entrar na Conta</button>
+            <button type="button" class="btn btn-primary" longinUser(e) [disabled]="!f.valid">Entrar na Conta</button>
   
           </form>
         </div>
