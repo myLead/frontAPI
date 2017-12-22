@@ -16,24 +16,11 @@ export class HomeComponent implements OnInit{
   private usuario = {"email_usuario": null, "senha_usuario": null}
   private planoSelecionado: Number
   
+  
   constructor(private _http: Http) {} 
 
-  private onSubmitLogin(form){
-    form._directives.forEach(element => {
-      switch (element.name) {
-        case 'loginEmail':
-          this.usuario.email_usuario = element.viewModel;
-          break;
-        case 'loginSenha':
-          this.usuario.senha_usuario = element.viewModel;
-          break;
-        default:
-          break;
-      }
-    });
-
-    this.LoginAccount(this.usuario);
-  }
+   
+ 
 
   private onSubmitCadastro(form){
 
@@ -79,23 +66,7 @@ export class HomeComponent implements OnInit{
     });
 }*/
 
-  private LoginAccount(usuario) {
-      return new Promise((resolve, reject) => {
-        this._http.post(this.API_URL + '/login', usuario)
-          .subscribe((result: any) => {
-            if (result.json()) {
-              if (result.json().status == "success"){
-                alert(result.json().message)
-              }else{
-                alert(result.json().message)
-              }
-            }
-          },
-          (error) => {
-            reject(error.json())
-          });
-      });
-  }
+ 
  
   private createAccount(dados) {
     return new Promise((resolve, reject) => {

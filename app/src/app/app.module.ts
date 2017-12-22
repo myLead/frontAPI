@@ -15,6 +15,11 @@ import { FooterComponent }        from './defaults/footer/footer.component';
 import { ModalCadastroComponent } from './modals/modal-cadastro/modal-cadastro.component';
 import { ModalLoginComponent }    from './modals/modal-login/modal-login.component';
 
+import{AuthguardGuard} from './authguard.guard';
+
+import {UserService} from './user.service'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,7 @@ import { ModalLoginComponent }    from './modals/modal-login/modal-login.compone
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
