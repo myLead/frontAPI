@@ -48,7 +48,7 @@ export class ModalLoginComponent implements OnInit {
                 if (result.json().status == "success"){
                   //alert(result.json().message)
                   $.notify({
-                    title: 'Erro:'
+                    title: 'Erro:',
                     message: 'Email ou senha incorretos'
                   },{
                     type: 'success'
@@ -60,7 +60,7 @@ export class ModalLoginComponent implements OnInit {
                 }else{
                   //alert(result.json().message)
                   $.notify({
-                    title: 'Erro:'
+                    title: 'Erro:',
                     message: 'Email ou senha incorretos'
                   },{
                     type: 'danger'

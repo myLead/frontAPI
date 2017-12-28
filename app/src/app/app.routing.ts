@@ -3,6 +3,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { DashboardComponent }   from './dashboard/dashboard/dashboard.component';
 import { HomeComponent }   from './home/home.component';
 import{AuthguardGuard} from './authguard.guard';
+import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component';
 
 const APP_ROUTS: Routes = [
    
@@ -12,8 +13,12 @@ const APP_ROUTS: Routes = [
     },
     {
         path: 'dashboard',
-        canActivate: [AuthguardGuard],
+        //canActivate: [AuthguardGuard],
         component: DashboardComponent
+    },
+    {
+        path: 'enviarbase',
+        component: EnviarbaseComponent
     }
 ]
 

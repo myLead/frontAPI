@@ -17,7 +17,9 @@ import { ModalLoginComponent }    from './modals/modal-login/modal-login.compone
 
 import{AuthguardGuard} from './authguard.guard';
 
-import {UserService} from './user.service'
+import {UserService} from './user.service';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component'
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {UserService} from './user.service'
     NavbarComponent,
     FooterComponent,
     ModalCadastroComponent,
-    ModalLoginComponent
+    ModalLoginComponent,
+    SidebarComponent,
+    EnviarbaseComponent
   ],
   imports: [
     BrowserModule,
