@@ -22,15 +22,22 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+<<<<<<< HEAD
     "angular-chart.js": "^1.1.1",
     "angular2-chartjs": "file:node_modules/angular2-chartjs",
     "chart.js": "^2.7.1",
+=======
+    "angular2-notifications": "^0.9.7",
+>>>>>>> a374f727e3a71ea4152be89c7601462203daf3bb
     "chartist": "0.9.4",
     "core-js": "^2.4.1",
     "ng2-charts": "^1.6.0",
     "ngx-bootstrap": "^2.0.0-beta.11",
     "rxjs": "^5.5.2",
+<<<<<<< HEAD
     "zingchart": "^2.6.2",
+=======
+>>>>>>> a374f727e3a71ea4152be89c7601462203daf3bb
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

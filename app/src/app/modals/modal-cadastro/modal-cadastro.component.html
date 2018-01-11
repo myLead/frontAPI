@@ -1,5 +1,5 @@
 <!-- Modal Cadastro -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal fade bs-example-modal-sm" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,11 +9,6 @@
       <div class="modal-body">
 
         <form #f2="ngForm" (ngSubmit)="onSubmitCadastro(f2)"  [class.has-error]="!nomeempresa.valid && nomeempresa.touched" [class.has-feedback]="!nomeempresa.valid && nomeempresa.touched">
-          <!--
-                  <div class="form-group">
-                    <label for="planoEscolhido">Plano</label>
-                    <input type="text" class="form-control" name="planoEscolhido" value="{{ planoSelecionado }}" id="planoEscolhido" disabled="false" ngModel>
-                  </div>-->
           <div class="form-group">
             <label for="InputNome">Nome Da Empresa</label>
             <input id="nomeEmpresa" type="nomeempresa" class="form-control" name="InputNome" placeholder="Nome Da Empresa" ngModel required
@@ -54,21 +49,6 @@
               Senha Inválida
             </div>
           </div>
-          <!--
-                  <div class="form-group">
-                    <label for="tempoSelecionado">Ciclo de Pagamento</label>
-                    <input type="text" class="form-control" name="tempoSelecionado" id="tempoSelecionado" disabled="false" ngModel>
-                  </div>
-                  <div class="form-group">
-                    <label for="valorPlano">Valor</label>
-                    <input type="text" class="form-control" name="valorPlano" id="valorPlano" disabled="false" ngModel>
-                  </div>
-                  <div class="form-group">
-                    <label id="tempoEscolhido"></label>
-                    <label id="precoTempo"></label>
-                  </div>
-                -->
-
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             <button type="submit" class="btn btn-primary btn_cadastro" [disabled]="!f2.valid">Cadastrar </button>

@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
+import { NotificationsService } from 'angular2-notifications';
+
+declare var $:any;
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl: `./home.component.html` ,
   styleUrls: ['./home.component.css']
 })
 
@@ -15,8 +18,19 @@ export class HomeComponent implements OnInit{
   private formulario = {"nome": null, "cnpj": null, "email_usuario": null, "senha_usuario": null, "id_plano": null}
   private usuario = {"email_usuario": null, "senha_usuario": null}
   private planoSelecionado: Number
-  
-  constructor(private _http: Http) {} 
+  public options = {
+    position: ["bottom", "right"],
+    timeOut: 5000,
+    showProgressBar: false,
+    pauseOnHover: true,
+    clickToClose: true
+  }
+
+
+  constructor(
+    private _http: Http,
+    private _service: NotificationsService
+  ) {} 
 
   private onSubmitCadastro(form){
 
@@ -52,12 +66,12 @@ export class HomeComponent implements OnInit{
         .subscribe((result: any) => {
           if (result.json()) {
             if (result.json().status == "error") {
-              alert(result.json().message)
-            }else{
-              alert(result.json().message)
-              
-              /* RESPONSE TO USER */
+              this._service.error('Erro', result.json().message);
 
+            }else{
+              this._service.success('Sucesso', result.json().message);
+              $('#modalCadastro').modal('toggle');
+              
             }
           }
         },
