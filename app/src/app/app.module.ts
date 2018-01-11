@@ -17,12 +17,12 @@ import { ModalLoginComponent }    from './modals/modal-login/modal-login.compone
 
 import { AuthguardGuard } from './authguard.guard';
 
-import { UserService } from './user.service';
-import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { UserService }         from './user.service';
+import { SidebarComponent }    from './dashboard/sidebar/sidebar.component';
 import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component';
-import { Grafico1Component } from './dashboard/grafico1/grafico1.component'
-import { ChartsModule } from 'ng2-charts';
-import { Grafico2Component } from './dashboard/grafico2/grafico2.component';
+import { Grafico1Component }   from './dashboard/grafico1/grafico1.component'
+import { ChartsModule }        from 'ng2-charts';
+import { Grafico2Component }   from './dashboard/grafico2/grafico2.component';
 
 import { SimpleNotificationsModule } from 'angular2-notifications';
 
@@ -47,11 +47,8 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     FormsModule,
     HttpModule,
     routing,
-<<<<<<< HEAD
-    ChartsModule
-=======
+    ChartsModule,
     SimpleNotificationsModule.forRoot()
->>>>>>> a374f727e3a71ea4152be89c7601462203daf3bb
   ],
   providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]
