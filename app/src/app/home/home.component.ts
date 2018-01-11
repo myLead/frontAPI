@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl: `./home.component.html` ,
   styleUrls: ['./home.component.css']
 })
 
@@ -16,7 +17,10 @@ export class HomeComponent implements OnInit{
   private usuario = {"email_usuario": null, "senha_usuario": null}
   private planoSelecionado: Number
   
-  constructor(private _http: Http) {} 
+  constructor(
+    private _http: Http,
+    private _service: NotificationsService
+  ) {} 
 
   private onSubmitCadastro(form){
 

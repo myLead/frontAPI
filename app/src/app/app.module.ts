@@ -15,11 +15,13 @@ import { FooterComponent }        from './defaults/footer/footer.component';
 import { ModalCadastroComponent } from './modals/modal-cadastro/modal-cadastro.component';
 import { ModalLoginComponent }    from './modals/modal-login/modal-login.component';
 
-import{AuthguardGuard} from './authguard.guard';
+import { AuthguardGuard } from './authguard.guard';
 
-import {UserService} from './user.service';
+import { UserService } from './user.service';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component'
+
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]

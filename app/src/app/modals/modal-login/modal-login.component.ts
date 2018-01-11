@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { Router, RouterModule} from '@angular/router';
 import { Http } from '@angular/http';
+import { NotificationsService } from 'angular2-notifications';
+
 declare var $:any;
 
 @Component({
@@ -9,13 +11,24 @@ declare var $:any;
   templateUrl: './modal-login.component.html',
   styleUrls: ['./modal-login.component.css']
 })
+
 export class ModalLoginComponent implements OnInit {
   dialog: any;
   private API_URL = "https://mylead-api.herokuapp.com";
   private formulario = {"email_usuario": null, "senha_usuario": null}
+  public options = {
+    position: ["bottom", "right"],
+    timeOut: 5000,
+    showProgressBar: false,
+    pauseOnHover: true,
+    clickToClose: true
+  }
 
-
-  constructor(private user: UserService, private router:Router, private _http: Http) { }
+  constructor(
+    private user:     UserService, 
+    private router:   Router, 
+    private _http:    Http,
+    private _service: NotificationsService) { }
 
   ngOnInit() {
   }
@@ -46,29 +59,15 @@ export class ModalLoginComponent implements OnInit {
             .subscribe((result: any) => {
               if (result.json()) {
                 if (result.json().status == "success"){
-                  alert(result.json().message)
-                  /*
-                  $.notify({
-                    title: 'Erro:',
-                    message: 'Email ou senha incorretos'
-                  },{
-                    type: 'success'
-                  })
-                  */
+                  this._service.success('Sucesso', result.json().message);
+ 
                   this.user.setUserloggedIn();
                   this.router.navigate(['dashboard']);
                   $('#modalLogin').modal('toggle');
 
                 }else{
-                  alert(result.json().message)
-                  /*
-                  $.notify({
-                    title: 'Erro:',
-                    message: 'Email ou senha incorretos'
-                  },{
-                    type: 'danger'
-                  })
-                  */
+                  this._service.error('Erro', result.json().message);               
+                  
                 }
               }
             },
