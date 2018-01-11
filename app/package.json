@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/schematics": "0.0.42",
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
@@ -21,12 +22,16 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "angular-chart.js": "^1.1.1",
+    "angular2-chartjs": "file:node_modules/angular2-chartjs",
+    "chart.js": "^2.7.1",
+    "chartist": "0.9.4",
     "core-js": "^2.4.1",
+    "ng2-charts": "^1.6.0",
     "ngx-bootstrap": "^2.0.0-beta.11",
     "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14",
-    "chartist": "0.9.4"
-    
+    "zingchart": "^2.6.2",
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "1.6.0",

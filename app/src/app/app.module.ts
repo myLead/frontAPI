@@ -19,7 +19,10 @@ import{AuthguardGuard} from './authguard.guard';
 
 import {UserService} from './user.service';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
-import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component'
+import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component';
+import { Grafico1Component } from './dashboard/grafico1/grafico1.component'
+import { ChartsModule } from 'ng2-charts';
+import { Grafico2Component } from './dashboard/grafico2/grafico2.component';
 
 
 @NgModule({
@@ -32,13 +35,17 @@ import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component
     ModalCadastroComponent,
     ModalLoginComponent,
     SidebarComponent,
-    EnviarbaseComponent
+    EnviarbaseComponent,
+    Grafico1Component,
+    Grafico2Component
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    ChartsModule
   ],
   providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]

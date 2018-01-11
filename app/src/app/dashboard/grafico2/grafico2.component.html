@@ -1,0 +1,13 @@
+<div>
+    <div class="grafico2" style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)" height="150"></canvas>
+    </div>
+
+  </div>
