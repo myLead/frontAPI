@@ -9,10 +9,10 @@
               <h4>Anexar base de dados</h4>
               <form action="" method="get" enctype="multipart/form-data">
                 <br><label for="nome">Base de dados:</label>
-                  <input class="btn" type="file" name="selecionar"/>
+                  <input #fileInput class="btn" type="file" name="selecionar"/>
                   <br><br>
-                  <input class="btn btn-primary" type="submit" value="Enviar arquivo" name="enviar" />
-                  <button type="button" (click)="upload()">Upload</button>                          
+                  <input class="btn btn-primary" (click)="upload()" type="submit" value="Enviar arquivo" name="enviar" />
+                  <!--<button type="button" (click)="upload()">Upload</button>  -->                        
               </form>   
           </div>
         </div>          
