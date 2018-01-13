@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit{
 
   private createAccount(dados) {
     return new Promise((resolve, reject) => {
-      this._http.post(this.API_URL + '/user', dados)
+      this._http.post(this.API_URL + '/users', dados)
         .subscribe((result: any) => {
           if (result.json()) {
             if (result.json().status == "error") {

@@ -6,7 +6,7 @@ import {UserService} from '../../user.service';
 declare var $:any;
 
 @Component({
-    selector: 'dashboard-cmp',
+    selector: 'app-dashboard-cmp',
     moduleId: module.id,
     templateUrl: 'dashboard.component.html',
     styleUrls: ['./dashboard.component.css']

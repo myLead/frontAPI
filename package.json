@@ -6,7 +6,9 @@
   "dependencies": {
     "express": "^4.16.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@angular/cli": "^1.6.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
