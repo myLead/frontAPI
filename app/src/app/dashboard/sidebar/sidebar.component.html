@@ -7,7 +7,7 @@
   
             <ul id="menu-content" class="menu-content collapse out">
                 <li>
-                  <a href="dashboard">
+                  <a routerLink="/dashboard">
                   <i class="fa fa-dashboard fa-lg"></i> Dashboard
                   </a>
                 </li>
@@ -43,7 +43,7 @@
                   <a><i class="fa fa-car fa-lg"></i> Serviços <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="new">
-                  <li><a href="enviarbase">Enviar Base de Dados</a></li>
+                  <li><a routerLink="/enviarbase">Enviar Base de Dados</a></li>
                   <li>New New 2</li>
                   <li>New New 3</li>
                 </ul>
@@ -55,8 +55,8 @@
                   </a>
                   </li>
 
-                 <li>
-                  <a href="#">
+                 <li ngSubmit="logout()">
+                  <a >
                   <i class="fa fa-users fa-lg"></i> Sair
                   </a>
                 </li>

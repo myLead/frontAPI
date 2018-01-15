@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Session } from 'selenium-webdriver';
+import { cleanSession } from 'selenium-webdriver/safari';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+    function logout() {
+    localStorage.clearAll();
+    this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit() {
   }

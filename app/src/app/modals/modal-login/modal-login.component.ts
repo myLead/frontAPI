@@ -62,7 +62,7 @@ export class ModalLoginComponent implements OnInit {
                   this._service.success('Sucesso', result.json().message);
  
                   this.user.setUserloggedIn();
-                  this.router.navigate(['dashboard']);
+                  this.router.navigate(['/dashboard']);
                   $('#modalLogin').modal('toggle');
 
                 }else{
