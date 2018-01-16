@@ -8,6 +8,8 @@ import { UserService } from '../../user.service';
 })
 export class EnviarbaseComponent implements OnInit {
 
+  private API_URL = "https://mylead-api.herokuapp.com";
+
   @ViewChild('fileInput') fileInput;
 
   constructor(private user:UserService) {}
@@ -22,7 +24,7 @@ export class EnviarbaseComponent implements OnInit {
         const formData = new FormData();
         formData.append('files', fileBrowser.files[0]);
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/api/Data/UploadFiles', true);
+        xhr.open('POST', this.API_URL + '/upload', true);
         xhr.onload = function () {
           if (this['status'] === 200) {
               const responseText = this['responseText'];
