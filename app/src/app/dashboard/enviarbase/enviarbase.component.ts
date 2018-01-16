@@ -10,7 +10,7 @@ export class EnviarbaseComponent implements OnInit {
 
   private API_URL = "https://mylead-api.herokuapp.com";
 
-  @ViewChild('fileInput') fileInput;
+  @ViewChild('inputFile') fileInput;
 
   constructor(private user:UserService) {}
   
