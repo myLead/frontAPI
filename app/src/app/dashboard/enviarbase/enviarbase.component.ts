@@ -1,43 +1,23 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserService } from '../../user.service';
+import { Component } from '@angular/core';
+import { FileUploader } from 'ng2-file-upload';
+
+// const URL = '/api/';
+const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 @Component({
   selector: 'app-enviarbase',
   templateUrl: './enviarbase.component.html',
-  styleUrls: ['./enviarbase.component.css']
 })
-export class EnviarbaseComponent implements OnInit {
+export class SimpleDemoComponent {
+  public uploader: FileUploader = new FileUploader({ url: URL });
+  public hasBaseDropZoneOver: boolean = false;
+  public hasAnotherDropZoneOver: boolean = false;
 
-  private API_URL = "https://mylead-api.herokuapp.com";
+  public fileOverBase(e: any): void {
+    this.hasBaseDropZoneOver = e;
+  }
 
-  @ViewChild('inputFile') fileInput;
-
-  constructor(private user:UserService) {}
-  
-    ngOnInit(){
-
-    };
-
-    private upload() {
-      const fileBrowser = this.fileInput.nativeElement;
-      if (fileBrowser.files && fileBrowser.files[0]) {
-        const formData = new FormData();
-        formData.append('files', fileBrowser.files[0]);
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', this.API_URL + '/upload', true);
-        xhr.onload = function () {
-          if (this['status'] === 200) {
-              const responseText = this['responseText'];
-              const files = JSON.parse(responseText);
-              //todo: emit event
-              alert("success");
-          } else {
-            //todo: error handling
-            alert("error")
-          }
-        };
-        xhr.send(formData);
-      }
-    }
-
+  public fileOverAnother(e: any): void {
+    this.hasAnotherDropZoneOver = e;
+  }
 }
