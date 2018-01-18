@@ -1,3 +1,27 @@
 .posi {
     margin-left: 300px;
 }
+
+#content {
+    margin-top: 50px;
+    margin-left: 340px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item{
+   
+    height: 100px;
+    width: 310px;
+    color: black;
+    -webkit-box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.24);
+    background:#6E7B8B;
+    margin: 5px;
+}
+
+.header{
+    margin-top: 5px;
+    text-align: center;
+}

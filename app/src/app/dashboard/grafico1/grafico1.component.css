@@ -1,9 +1,12 @@
+
+#grafico{
+    margin-top: 50px;
+    height: 400px;
+    display: flex;
+
+}
 .grafico1{
-    margin: auto;
-    position: relative;
-    width: 600px;
-    height: 600px;
-     margin-top:100px;
-     margin-left: 200px;
-   
+    margin-top: 50px;
+    margin-left: 300px;
+    height: 30px;
 }

@@ -14,16 +14,15 @@ import { routing }                from './app.routing';
 import { FooterComponent }        from './defaults/footer/footer.component';
 import { ModalCadastroComponent } from './modals/modal-cadastro/modal-cadastro.component';
 import { ModalLoginComponent }    from './modals/modal-login/modal-login.component';
-
-import { AuthguardGuard } from './authguard.guard';
 import { Component, OnInit  } from '@angular/core';
+import { AuthguardGuard } from './authguard.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService }         from './user.service';
 import { SidebarComponent }    from './dashboard/sidebar/sidebar.component';
 import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component';
 import { Grafico1Component }   from './dashboard/grafico1/grafico1.component'
 import { ChartsModule }        from 'ng2-charts';
 import { Grafico2Component }   from './dashboard/grafico2/grafico2.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 
 
@@ -40,6 +39,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     EnviarbaseComponent,
     Grafico1Component,
     Grafico2Component
+    
   ],
   imports: [
     BrowserModule,
