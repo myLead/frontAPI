@@ -24,7 +24,7 @@ import { Grafico1Component }   from './dashboard/grafico1/grafico1.component'
 import { ChartsModule }        from 'ng2-charts';
 import { Grafico2Component }   from './dashboard/grafico2/grafico2.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-
+import { UtilityService } from './utility.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,9 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([
+      { path: 'app-modal-login', component: ModalLoginComponent }
+    ]),
     FormsModule,
     HttpModule,
     routing,
@@ -50,7 +53,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService, AuthguardGuard],
+  providers: [UserService, AuthguardGuard, UtilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

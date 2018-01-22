@@ -3,6 +3,8 @@ import { UserService } from '../../user.service';
 import { Router, RouterModule} from '@angular/router';
 import { Http } from '@angular/http';
 import { NotificationsService } from 'angular2-notifications';
+import { UtilityService } from '../../utility.service';
+import { element } from 'protractor';
 
 declare var $:any;
 
@@ -25,13 +27,21 @@ export class ModalLoginComponent implements OnInit {
   }
 
   constructor(
+    private utility : UtilityService,
     private user:     UserService, 
     private router:   Router, 
     private _http:    Http,
     private _service: NotificationsService) { }
+   
 
-  ngOnInit() {
-  }
+  ngOnInit():void {
+   /* this.utility.islogged().then((result: boolean) => {
+         if(result){ 
+             this.router.navigate(['/dashoboard']);
+      }
+  })
+  */
+}
  
   
   private onSubmitLogin(form){
@@ -60,11 +70,15 @@ export class ModalLoginComponent implements OnInit {
               if (result.json()) {
                 if (result.json().status == "success"){
                   this._service.success('Sucesso', result.json().message);
- 
                   this.user.setUserloggedIn();
+                  if(typeof (Storage) !== 'undefined'){
+                    sessionStorage.setItem('user', usuario.name);
+                  
+                   
+                  }
                   this.router.navigate(['/dashboard']);
                   $('#modalLogin').modal('toggle');
-
+                  
                 }else{
                   this._service.error('Erro', result.json().message);               
                   

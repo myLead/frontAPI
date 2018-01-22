@@ -7,6 +7,7 @@ import { EnviarbaseComponent } from './dashboard/enviarbase/enviarbase.component
 import {  Grafico1Component } from './dashboard/grafico1/grafico1.component';
 import {  Grafico2Component } from './dashboard/grafico2/grafico2.component';
 import { componentFactoryName } from '@angular/compiler';
+import { ModalLoginComponent } from './modals/modal-login/modal-login.component';
 
 
 const APP_ROUTS: Routes = [
@@ -14,6 +15,10 @@ const APP_ROUTS: Routes = [
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: ModalLoginComponent
     },
     {
         path: 'dashboard',
