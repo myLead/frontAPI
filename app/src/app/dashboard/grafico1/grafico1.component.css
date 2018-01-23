@@ -1,12 +1,18 @@
 
 #grafico{
-    margin-top: 50px;
+    margin-top: 5px;
     height: 400px;
     display: flex;
 
 }
 .grafico1{
-    margin-top: 50px;
-    margin-left: 300px;
+    margin-top: 5px;
+    margin-left: 150px;
     height: 30px;
+    
 }
+@media (max-width: 415px) { 
+    .grafico1{
+        margin-left: 10px;
+    }
+     }
