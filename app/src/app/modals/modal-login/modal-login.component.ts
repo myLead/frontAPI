@@ -5,7 +5,7 @@ import { Http } from '@angular/http';
 import { NotificationsService } from 'angular2-notifications';
 import { UtilityService } from '../../utility.service';
 import { element } from 'protractor';
-
+import { CookieService } from 'ngx-cookie-service';
 declare var $:any;
 
 @Component({
@@ -15,6 +15,7 @@ declare var $:any;
 })
 
 export class ModalLoginComponent implements OnInit {
+  cookieValue = 'UNKNOWN';
   dialog: any;
   private API_URL = "https://mylead-api.herokuapp.com";
   private formulario = {"email_usuario": null, "senha_usuario": null}
@@ -24,9 +25,11 @@ export class ModalLoginComponent implements OnInit {
     showProgressBar: false,
     pauseOnHover: true,
     clickToClose: true
+   
   }
 
   constructor(
+    private cookieService: CookieService,
     private utility : UtilityService,
     private user:     UserService, 
     private router:   Router, 
@@ -35,12 +38,15 @@ export class ModalLoginComponent implements OnInit {
    
 
   ngOnInit():void {
-   /* this.utility.islogged().then((result: boolean) => {
+    this.cookieService.set( 'Test', 'Hello World' );
+    this.cookieValue = this.cookieService.get('Test');
+    
+   this.utility.islogged().then((result: boolean) => {
          if(result){ 
              this.router.navigate(['/dashoboard']);
       }
   })
-  */
+  
 }
  
   

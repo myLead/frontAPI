@@ -9,7 +9,7 @@ import { AppComponent }           from './app.component';
 import { HomeComponent }          from './home/home.component';
 import { DashboardComponent }     from './dashboard/dashboard/dashboard.component';
 import { NavbarComponent }        from './defaults/navbar/navbar.component';
-
+import { CookieService } from 'ngx-cookie-service';
 import { routing }                from './app.routing';
 import { FooterComponent }        from './defaults/footer/footer.component';
 import { ModalCadastroComponent } from './modals/modal-cadastro/modal-cadastro.component';
@@ -53,7 +53,7 @@ import { UtilityService } from './utility.service';
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService, AuthguardGuard, UtilityService],
+  providers: [UserService, AuthguardGuard, UtilityService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
