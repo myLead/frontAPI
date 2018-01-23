@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../../user.service';
+import { UtilityService } from '../../utility.service';
 
 @Component({
   selector: 'app-enviarbase',
@@ -13,7 +14,7 @@ export class EnviarbaseComponent implements OnInit {
 
   @ViewChild('inputFile') fileInput;
 
-  constructor(private user:UserService) {}
+  constructor(private user:UserService, private utility : UtilityService) {}
   
     ngOnInit(){
 
@@ -24,8 +25,9 @@ export class EnviarbaseComponent implements OnInit {
       if (fileBrowser.files && fileBrowser.files[0]) {
         const formData = new FormData();
         formData.append('inputFile', fileBrowser.files[0]);
-        const xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest();      
         xhr.open('POST', this.API_URL + '/upload', true);
+        xhr.setRequestHeader('Content-Type', 'multipart/form-data');
         xhr.onload = function () {
           if (this['status'] === 200) {
               const responseText = this['responseText'];
