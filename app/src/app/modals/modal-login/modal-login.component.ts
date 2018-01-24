@@ -78,8 +78,9 @@ export class ModalLoginComponent implements OnInit {
                   this._service.success('Sucesso', result.json().message);
                   this.user.setUserloggedIn();
                   if(typeof (Storage) !== 'undefined'){
-                    sessionStorage.setItem('user', usuario.name);
-                  
+                    sessionStorage.setItem(result.json().data.nome, result.json().data.id_usuario);
+                    //var str = JSON.stringify(result.json());
+                    //console.log(str);
                    
                   }
                   this.router.navigate(['/dashboard']);
