@@ -1,3 +1,10 @@
 .grafico2{
-    margin-left: 300px;
+    margin-left: 150px;
+    width: 400px;
+    height: 400px;
 }
+@media (max-width: 415px) { 
+    .grafico2{
+        margin-left: 0px;
+    }
+     }

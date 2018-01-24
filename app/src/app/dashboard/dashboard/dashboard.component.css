@@ -2,9 +2,11 @@
     margin-left: 300px;
 }
 
+.container{
+   margin-left: 190px;
+}
 #content {
     margin-top: 50px;
-    margin-left: 340px;
     height: 400px;
     display: flex;
     flex-direction: row;
@@ -14,14 +16,25 @@
 .item{
    
     height: 100px;
-    width: 310px;
+    width: 290px;
     color: black;
     -webkit-box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.24);
     background:#6E7B8B;
     margin: 5px;
+
+    border-radius: 6px;
+  color: #252422;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .header{
     margin-top: 5px;
     text-align: center;
 }
+@media (max-width: 415px) { 
+    .container{
+        margin-left: 10px;
+    }
+     }
