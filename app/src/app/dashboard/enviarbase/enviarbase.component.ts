@@ -14,7 +14,7 @@ export class EnviarbaseComponent implements OnInit {
 
   @ViewChild('inputFile') fileInput;
 
-  constructor(private user:UserService, private utility : UtilityService) {}
+  constructor(private user:UserService) {}
   
     ngOnInit(){
 
@@ -27,7 +27,6 @@ export class EnviarbaseComponent implements OnInit {
         formData.append('inputFile', fileBrowser.files[0]);
         const xhr = new XMLHttpRequest();      
         xhr.open('POST', this.API_URL + '/upload', true);
-        xhr.setRequestHeader('Content-Type', 'multipart/form-data');
         xhr.onload = function () {
           if (this['status'] === 200) {
               const responseText = this['responseText'];
