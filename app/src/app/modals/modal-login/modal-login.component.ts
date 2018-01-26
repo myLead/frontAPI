@@ -78,7 +78,8 @@ export class ModalLoginComponent implements OnInit {
                   this._service.success('Sucesso', result.json().message);
                   this.user.setUserloggedIn();
                   if(typeof (Storage) !== 'undefined'){
-                    sessionStorage.setItem(result.json().data.nome, result.json().data.id_usuario);
+                    sessionStorage.clear();                    
+                    sessionStorage.setItem('user',JSON.stringify({'nome': result.json().data.nome, 'id': result.json().data.id_usuario}) );
                     //var str = JSON.stringify(result.json());
                     //console.log(str);
                    
@@ -97,5 +98,6 @@ export class ModalLoginComponent implements OnInit {
             });
         });
     }
-    
+ 
+
 }

@@ -28,7 +28,6 @@ export class SidebarComponent implements OnInit {
 
   logout(){
     alert("Eu click");
-    sessionStorage.setItem("","");
     sessionStorage.clear();
     localStorage.removeItem('auth_token');
     this.utility.islogged(); 
