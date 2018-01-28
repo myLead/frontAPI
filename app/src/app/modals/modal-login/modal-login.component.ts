@@ -6,6 +6,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { UtilityService } from '../../utility.service';
 import { element } from 'protractor';
 import { CookieService } from 'ngx-cookie-service';
+import { Alert } from 'selenium-webdriver';
 declare var $:any;
 
 @Component({
@@ -47,9 +48,11 @@ export class ModalLoginComponent implements OnInit {
       }
   })
   
+
+  
 }
  
-  
+
   private onSubmitLogin(form){
     
         form._directives.forEach(element => {
