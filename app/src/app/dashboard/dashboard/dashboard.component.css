@@ -3,11 +3,11 @@
 }
 
 .container{
-   margin-left: 190px;
+   margin-left: 230px;
 }
 #content {
     margin-top: 50px;
-    height: 400px;
+    height: 300px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
