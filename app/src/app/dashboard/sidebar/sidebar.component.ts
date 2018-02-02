@@ -28,7 +28,8 @@ export class SidebarComponent implements OnInit {
 
   logout(){
     sessionStorage.clear();
-   this.router.navigate(['/']); }
+    this.user.setUserLoggedOff();
+    this.router.navigate(['/']); }
   ngOnInit() {
     
   }

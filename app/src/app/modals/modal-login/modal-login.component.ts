@@ -44,7 +44,7 @@ export class ModalLoginComponent implements OnInit {
     
    this.utility.islogged().then((result: boolean) => {
          if(result){ 
-             this.router.navigate(['/dashoboard']);
+             this.router.navigate(['/dashboard']);
       }
   })
   
