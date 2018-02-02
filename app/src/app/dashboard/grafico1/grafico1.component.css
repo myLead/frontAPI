@@ -1,13 +1,17 @@
 
+.col-md-4{
+    margin-left: 250px;
+}
 #grafico{
     margin-top: 5px;
     height: 400px;
-    display: flex;
+    display: inline-block;
 
 }
 .grafico1{
+    
     margin-top: 5px;
-    margin-left: 30px;
+    margin-left: 10px;
     height: 30px;
     
 }

@@ -1,5 +1,5 @@
-
-<section id="grafico" class="container">
+<div class="row">
+<section id="grafico" class="container col-md-4">
   <div class="col-md-6 grafico1">
     <div style="display: inline-block">        
       <canvas baseChart class="grafico"
@@ -11,3 +11,16 @@
     </div>
   </div>
 </section>
+<section id="grafico" class="container col-md-4">
+  <div class="col-md-6 grafico1">
+    <div style="display: inline-block">        
+      <canvas baseChart class="grafico"
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)" height="300px"></canvas>
+    </div>
+  </div>
+</section>
+</div>
