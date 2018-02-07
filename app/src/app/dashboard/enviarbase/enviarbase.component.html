@@ -7,13 +7,22 @@
           <div class="col-md-12">
               <h1>BASE DE DADOS</h1>
               <h4>Anexar base de dados</h4>
-              <form action="/upload" method="POST" enctype="multipart/form-data">
+              <form action="/upload" method="GET" enctype="multipart/form-data">
                 <br><label for="inputFile">Base de dados:</label>
                   <input #inputFile class="btn" type="file" name="inputFile"/>
                   <br><br>
-                  <input class="btn btn-primary" (click)="upload()" type="submit" value="Enviar arquivo" name="inputFile" />
+                  <input class="btn btn-primary" (click)="getResultados()" type="submit" value="Enviar arquivo" name="inputFile" />
                   <!--<button type="button" (click)="upload()">Upload</button>  -->                        
-              </form>   
+              </form>
+              <button type="button" (click)="getResultados()">MOSTRAR</button>
+              <button type="button" (click)="exibir()">EXIBIR</button>
+              <div ng-repeat="item in resultado">
+                <div ng-repeat="obj in item">
+                  
+                    {{ obj }}
+                  
+                </div>
+              </div>
           </div>
         </div>          
       </div>

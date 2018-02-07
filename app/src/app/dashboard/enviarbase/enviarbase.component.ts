@@ -1,20 +1,31 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
 import { UserService } from '../../user.service';
 import { UtilityService } from '../../utility.service';
+import { Resultados } from './resultados'
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
+
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-enviarbase',
   templateUrl: './enviarbase.component.html',
   styleUrls: ['./enviarbase.component.css']
 })
+@Injectable()
 export class EnviarbaseComponent implements OnInit {
+
+  resultado: object[] = [];
 
   // private API_URL = "https://mylead-api.herokuapp.com";
   private API_URL = 'https://mylead-api.herokuapp.com';
+  private _Url = 'http://mylead-api.herokuapp.com/teste';
 
   @ViewChild('inputFile') fileInput;
 
-  constructor(private user:UserService) {}
+  constructor(private user:UserService, private _http: Http) {  }
   
     ngOnInit(){
 
@@ -41,5 +52,23 @@ export class EnviarbaseComponent implements OnInit {
         xhr.send(formData);
       }
     }
+
+    private getResultados() {
+      //console.log(this.resultado);
+      return this._http.get(this._Url)
+          .map((response: Response) => <Resultados>response.json().data)
+          .subscribe(data => this.resultado.push(data))
+          //.catch(this.handleError);
+    }
+    private handleError(error: Response) {
+      console.error(error);
+      return Observable.throw(error.json().error || 'Server error');
+    }
+    private exibir(){
+      console.log(this.resultado);
+    }
+
+
+    //console.log('All: ' + JSON.stringify(data))
 
 }
