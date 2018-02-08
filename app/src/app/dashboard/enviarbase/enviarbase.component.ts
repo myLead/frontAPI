@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
 import { Observable } from 'rxjs/Observable';
+import { GraficosService } from '../grafico.service';
 
 @Component({
   selector: 'app-enviarbase',
@@ -21,11 +22,12 @@ export class EnviarbaseComponent implements OnInit {
 
   // private API_URL = "https://mylead-api.herokuapp.com";
   private API_URL = 'https://mylead-api.herokuapp.com';
-  private _Url = 'http://mylead-api.herokuapp.com/teste';
+  //private _Url = 'http://mylead-api.herokuapp.com/teste/id';
+  private _Url = 'http://mylead-api.herokuapp.com/resultado/1';
 
   @ViewChild('inputFile') fileInput;
 
-  constructor(private user:UserService, private _http: Http) {  }
+  constructor(private user:UserService, private _http: Http, private grafico: GraficosService) {  }
   
     ngOnInit(){
 
@@ -55,9 +57,9 @@ export class EnviarbaseComponent implements OnInit {
 
     private getResultados() {
       //console.log(this.resultado);
-      return this._http.get(this._Url)
-          .map((response: Response) => <Resultados>response.json().data)
-          .subscribe(data => this.resultado.push(data))
+      //return this._http.get(this._Url)
+          //.map((response: Response) => <Resultados>response.json().data)
+          //.subscribe(data => this.resultado.push(data))
           //.catch(this.handleError);
     }
     private handleError(error: Response) {
@@ -66,6 +68,15 @@ export class EnviarbaseComponent implements OnInit {
     }
     private exibir(){
       console.log(this.resultado);
+    }
+
+    //RESULTADO DA API
+    private getResultadosAPI() {
+      //console.log(this.resultado);
+      return this._http.get(this._Url)
+          .map((response: Response) => <Resultados>response.json().data)
+          .subscribe(data => this.grafico.setArrayDados(data))
+          //.catch(this.handleError);
     }
 
 

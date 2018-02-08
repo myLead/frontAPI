@@ -25,6 +25,7 @@ import { ChartsModule }        from 'ng2-charts';
 import { Grafico2Component }   from './dashboard/grafico2/grafico2.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { UtilityService } from './utility.service';
+import { GraficosService } from './dashboard/grafico.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { UtilityService } from './utility.service';
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService, AuthguardGuard, UtilityService, CookieService],
+  providers: [UserService, AuthguardGuard, UtilityService, CookieService, GraficosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { chart } from 'chart.js';
 import { ChartsModule } from 'ng2-charts';
+import { GraficosService } from '../grafico.service';
 //import { chartlist } from '../../../../node_modules/chartist/dist/chartist.js';
 //import { Script } from 'vm';
 
@@ -12,8 +13,10 @@ import { ChartsModule } from 'ng2-charts';
 })
 export class Grafico1Component implements OnInit {
   public doughnutChartLabels:string[] = ['Leads', 'Clientes', 'SuperLeads'];
-  public doughnutChartData:number[] = [50,30,20];
+  public doughnutChartData:number[] = [];
   public doughnutChartType:string = 'doughnut';
+
+  
  
   // events
   public chartClicked(e:any):void {
@@ -27,12 +30,25 @@ export class Grafico1Component implements OnInit {
   
   
    
-  constructor() { 
+  constructor(private grafico: GraficosService) { 
 
   }
 
   ngOnInit() {
+    this.setarGrafico();
     
   }
+
+  setarGrafico(){
+    console.log(this.grafico.getArrayDados()[0]);
+    if (this.grafico.getValidacao() == true){
+      this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Leads"]);
+      this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Clientes"]);
+      this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Superleads"]);
+      console.log(this.doughnutChartData);
+    }
+  }
+
+  
 
 }

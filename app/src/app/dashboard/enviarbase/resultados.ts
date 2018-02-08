@@ -1,8 +1,14 @@
 export class Resultados{
-    public id_teste: number;
-    public valor1: number;
-    public valor2: number;
-    public valor3: number;
-    public valor4: number;
+    public Interacoes_Superleads: number;
+    public Media_Interacoes_Superleads: number;
+    public Media_Scoring_Superleads: number;
+    public Qtde_Clientes: number;
+    public Qtde_Leads: number;
+    public Qtde_Superleads: number;
+    public Scoring_Superleads: number;
+    public Usuario: number;
+    public id_resultado: number;
+
+
 
 }
