@@ -45,7 +45,10 @@ export class Grafico1Component implements OnInit {
       this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Leads"]);
       this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Clientes"]);
       this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Superleads"]);
-      console.log(this.doughnutChartData);
+    } else{
+      this.doughnutChartData.push(0);
+      this.doughnutChartData.push(0);
+      this.doughnutChartData.push(0);
     }
   }
 
