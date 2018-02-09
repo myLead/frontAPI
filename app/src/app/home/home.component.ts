@@ -69,8 +69,9 @@ export class HomeComponent implements OnInit{
               this._service.error('Erro', result.json().message);
 
             }else{
-              this._service.success('Sucesso', result.json().message);
+              this._service.success('Sucesso', result.json().message)
               $('#modalCadastro').modal('toggle');
+            
               
             }
           }
