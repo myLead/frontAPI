@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GraficosService } from '../grafico.service';
 
 @Component({
   selector: 'app-grafico2',
@@ -10,13 +11,18 @@ export class Grafico2Component implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels:string[] = ['5', '6', '7', '8'];
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
+
+  private arrayValores: Number[]
+  private arrayIndex: String[]
+  private arrayValor: Number[] = [];
+  private arrayString: String[]
  
   public barChartData:any[] = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Leads'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Clientes'}
+    {data: [], label: 'Porcentagem de Leads'},
+    //{data: [28, 48, 40, 19, 86, 27, 90], label: 'Clientes'}
   ];
  
   // events
@@ -48,9 +54,29 @@ export class Grafico2Component implements OnInit {
      * assign it;
      */
   }
-  constructor() { }
+  constructor(private grafico: GraficosService) { }
 
   ngOnInit() {
+    this.setarGrafico();
+  }
+
+  setarGrafico(){
+    console.log(this.grafico.getArrayDados()[0]);
+    if (this.grafico.getValidacao() == true){
+      this.arrayString = this.grafico.getArrayDados()[0]["Interacoes_Superleads"].split(" ");
+      //console.log(this.arrayString);
+      var array = this.arrayString[1].split(",");
+      //console.log(array);
+      for (var i=0; i<4; i++) {
+        var valor = parseFloat(array[i]);
+        this.arrayValor.push(valor);
+      }
+      this.barChartData[0]["data"] = this.arrayValor;
+      //this.doughnutChartData = this.arrayValor;
+    } else{
+      this.barChartData[0]["data"] = [0,0,0,0];
+      
+    }
   }
 
 }

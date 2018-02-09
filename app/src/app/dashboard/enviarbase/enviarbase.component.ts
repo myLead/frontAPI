@@ -23,7 +23,7 @@ export class EnviarbaseComponent implements OnInit {
   private API_URL = "https://mylead-api.herokuapp.com";
   // private API_URL = 'http://127.0.0.1:5000';
   //private _Url = 'http://mylead-api.herokuapp.com/teste/id';
-  private _Url = 'http://mylead-api.herokuapp.com/resultado/1';
+  private _Url = 'http://mylead-api.herokuapp.com/resultado/2';
 
   @ViewChild('inputFile') fileInput;
 

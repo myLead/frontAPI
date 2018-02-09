@@ -12,10 +12,15 @@ import { GraficosService } from '../grafico.service';
   styleUrls: ['./grafico1.component.css']
 })
 export class Grafico1Component implements OnInit {
-  public doughnutChartLabels:string[] = ['Leads', 'Clientes', 'SuperLeads'];
-  public doughnutChartData:number[] = [];
+  public doughnutChartLabels:String[] = ["100","115","120","135","85","90","95"];
+  //public doughnutChartLabels:String[] = [];
+  public doughnutChartData:Number[] = [];
   public doughnutChartType:string = 'doughnut';
 
+  private arrayValores: Number[]
+  private arrayIndex: String[]
+  private arrayValor: Number[] = [];
+  private arrayString: String[]
   
  
   // events
@@ -27,9 +32,6 @@ export class Grafico1Component implements OnInit {
     console.log(e);
   }
 
-  
-  
-   
   constructor(private grafico: GraficosService) { 
 
   }
@@ -42,15 +44,43 @@ export class Grafico1Component implements OnInit {
   setarGrafico(){
     console.log(this.grafico.getArrayDados()[0]);
     if (this.grafico.getValidacao() == true){
-      this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Leads"]);
-      this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Clientes"]);
-      this.doughnutChartData.push(this.grafico.getArrayDados()[0]["Qtde_Superleads"]);
+      this.arrayString = this.grafico.getArrayDados()[0]["Scoring_Superleads"].split(" ");
+      //console.log(this.arrayString);
+      var array = this.arrayString[1].split(",");
+      //console.log(array);
+      for (var i=0; i<7; i++) {
+        var valor = parseFloat(array[i]);
+        this.arrayValor.push(valor);
+      }
+      this.doughnutChartData = this.arrayValor;
     } else{
       this.doughnutChartData.push(0);
       this.doughnutChartData.push(0);
       this.doughnutChartData.push(0);
+      this.doughnutChartData.push(0);
+      this.doughnutChartData.push(0);
+      this.doughnutChartData.push(0);
+      this.doughnutChartData.push(0);
+      
     }
   }
+  /*
+  separarString(){
+    this.obj = this.grafico.getArrayDados()[0];
+    var arrayString = this.obj["Scoring_Superleads"].split(" ");
+    var arrayValores: number[]
+    var arrayIndex: Number[]
+    var arrayValor: Number[]
+
+    for (var i=0; i<7; i++) {
+      arrayIndex.push(Number(arrayString[0]));
+      arrayValor.push(Number(arrayString[1]));
+    }
+
+    //arrayValores.push(Number(stringScoring.split(",")));
+    //var myArray = "14 2".split(" ");
+    //for(var i=0; i<myArray.length; i++) { myArray[i] = +myArray[i]; } 
+  }*/
 
   
 
