@@ -21,7 +21,11 @@ export class Grafico2Component implements OnInit {
   private arrayString: String[]
  
   public barChartData:any[] = [
+<<<<<<< HEAD
     {data: [], label: 'Porcentagem de Leads'},
+=======
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Leads'},
+>>>>>>> dbd6fd51cfd7e6c276d66ec0c3ac228633c7a488
     //{data: [28, 48, 40, 19, 86, 27, 90], label: 'Clientes'}
   ];
  
